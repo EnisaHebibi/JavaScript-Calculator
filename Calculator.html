@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculator</title>
+    <script>
+      var oper = "+";
+      function SetOp(op) {
+        oper = op;
+        Calculate();
+      }
+      function Calculate() {
+        document.Calculator.sum.value =
+          document.Calculator.number1.value +
+          oper +
+          document.Calculator.number2.value +
+          " = " +
+          eval(
+            document.Calculator.number1.value +
+              oper +
+              document.Calculator.number2.value,
+          );
+      }
+    </script>
+  </head>
+  <body onload="Calculate()">
+    <form name="Calculator">
+      <table border="1">
+        <tr>
+          <td>Operator 1:</td>
+
+          <td>
+            <input
+              type="text"
+              name="number1"
+              size="10"
+              value="1"
+              onchange="Calculate()"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>Operator 2:</td>
+
+          <td>
+            <input
+              type="text"
+              name="number2"
+              size="10"
+              value="2"
+              onChange="Calculate()"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input
+              type="radio"
+              name="operat"
+              value="+"
+              onClick="SetOp('+')"
+              checked
+            />+
+            <input type="radio" name="operat" value="-" onClick="SetOp('-')" />-
+            <input type="radio" name="operat" value="*" onClick="SetOp('*')" />*
+            <input type="radio" name="operat" value="/" onClick="SetOp('/')" />/
+          </td>
+
+          <td>
+            <input type="text" name="sum" size="10" onchange="Calculate()" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
