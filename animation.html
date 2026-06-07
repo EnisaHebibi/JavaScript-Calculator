@@ -4,5 +4,24 @@
     <meta charset="UTF-8" />
     <title>Animation</title>
   </head>
-  <body></body>
+  <body>
+    <h1 id="animation">Simple Animation</h1>
+
+    <script>
+      var animation = document.getElementById("animation");
+      animation.style.position = "absolute";
+      var frame = 0;
+
+      function nextFrame() {
+        if (frame++ < 20) {
+          animation.style.left = 10 * frame + "px";
+          setTimeout("nextFrame()", 50);
+        } else {
+          animation.style.visibility = "hidden";
+        }
+      }
+
+      nextFrame();
+    </script>
+  </body>
 </html>
